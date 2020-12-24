@@ -39,6 +39,31 @@ class Simple_Address_Autocomplete {
 	 */
 	protected $loader;
 
+	public function settings_page(){
+		//add menu items
+
+		$page_title = 'Simple Address Autocomplete Settings';
+		$menu_title = 'Address Autocomplete';
+		$capability = 'manage_options';
+		$slug = 'simple_address_autocomplete';
+		$callback = array($this, 'settings_content');
+		$icon = 'dashicons-location';
+		$position = '100';
+
+		add_submenu_page( 'options-general.php', $page_title, $menu_title, $capability, $slug, $callback );
+		}
+
+	public function settings_content(){
+		echo 'hello world';
+	}
+
+
+
+
+
+
+
+
 	/**
 	 * The unique identifier of this plugin.
 	 *
@@ -78,6 +103,8 @@ class Simple_Address_Autocomplete {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+
+		add_action( 'admin_menu',array( $this, 'settings_page' ) );
 
 	}
 

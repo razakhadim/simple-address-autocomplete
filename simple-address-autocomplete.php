@@ -18,6 +18,7 @@
  * @link              https://khadim.nz
  * @since             1.0.0
  * @package           Simple_Address_Autocomplete
+ * 
  */
 
 if ( ! defined( 'WPINC' ) ) {
@@ -71,4 +72,20 @@ function run_simple_address_autocomplete() {
 	$plugin->run();
 
 }
+
+
+
+add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'docs_link' );
+
+function docs_link ($url){
+	$url[] = '<a href="https://khadim.nz/kb/simple-address-autocomplete"> Support </a>';
+	return $url;
+}
+
+// function simple_enqueue_scripts(){
+// 	$api_key = ;
+	
+// }
+
+
 run_simple_address_autocomplete();
