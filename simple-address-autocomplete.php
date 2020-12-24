@@ -18,7 +18,6 @@
  * @link              https://khadim.nz
  * @since             1.0.0
  * @package           Simple_Address_Autocomplete
- *
  */
 
 if ( ! defined( 'WPINC' ) ) {
