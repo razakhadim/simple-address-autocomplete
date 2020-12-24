@@ -30,6 +30,12 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.0.0' );
 
+add_action( 'wp_enqueue_scripts', 'saa_enqueue_scripts' );
+
+function saa_enqueue_scripts(){
+	wp_enqueue_script( 'google_maps_places', 'https://maps.googleapis.com/maps/api/js?key='.(!empty($google_api_key) ? $google_api_key : 'AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es') .'&libraries=places', '1.0',true );
+}
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-simple-address-autocomplete-activator.php
