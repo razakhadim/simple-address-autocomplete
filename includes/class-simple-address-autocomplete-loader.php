@@ -1,16 +1,6 @@
 <?php
 
 /**
- * Register all actions and filters for the plugin
- *
- * @link       https://khadim.nz
- * @since      1.0.0
- *
- * @package    Simple_Address_Autocomplete
- * @subpackage Simple_Address_Autocomplete/includes
- */
-
-/**
  * Register all actions and filters for the plugin.
  *
  * Maintain a list of all hooks that are registered throughout
@@ -19,24 +9,18 @@
  *
  * @package    Simple_Address_Autocomplete
  * @subpackage Simple_Address_Autocomplete/includes
- * @author     Raza Khadim <hi@khadim.nz>
+ * @author     Raza Khadim <salam@khadim.nz>
  */
 class Simple_Address_Autocomplete_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
 	 * @var      array    $actions    The actions registered with WordPress to fire when the plugin loads.
 	 */
 	protected $actions;
 
 	/**
 	 * The array of filters registered with WordPress.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
 	 * @var      array    $filters    The filters registered with WordPress to fire when the plugin loads.
 	 */
 	protected $filters;

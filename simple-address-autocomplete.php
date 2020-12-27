@@ -4,7 +4,7 @@
 
  * @wordpress-plugin
  * Plugin Name:       Simple Address Autocomplete
- * Plugin URI:        https://khadim.nz/wp/saa
+ * Plugin URI:        https://saa.khadim.nz
  * Description:       A simple way to add Google address autocomplete functionality to any form field.
  * Version:           1.0.0
  * Author:            Raza Khadim
@@ -46,6 +46,7 @@ function saa_google_maps_api_key(){
 // enqueue main js file
 wp_enqueue_script( 'saa_js_scripts', SAA_JS_URL.'/public/js/simple-address-autocomplete-public.js');
 
+
 //localising PHP get_options to use in JS
 
 wp_localize_script( 'saa_js_scripts', 'saa_settings_vars', array(
@@ -74,6 +75,7 @@ register_deactivation_hook( __FILE__, 'deactivate_simple_address_autocomplete' )
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete.php';
 
+
 /**
  * Begins execution of the plugin.
  *
@@ -90,12 +92,10 @@ function run_simple_address_autocomplete() {
 
 }
 
-
-
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'docs_link' );
 
 function docs_link ($url){
-	$url[] = '<a href="https://khadim.nz/kb/simple-address-autocomplete"> Support </a>';
+	$url[] = '<a href="https://saa.khadim.nz/"> Support </a>';
 	$url[] = '<a href="https://khadim.nz/kb/simple-address-autocomplete"> Settings </a>';
 
 	return $url;

@@ -1,12 +1,7 @@
 <?php
 
 /**
- * The file that defines the core plugin class
- *
- * A class definition that includes attributes and functions used across both the
- * public-facing side of the site and the admin area.
- *
- * @since      1.0.0
+  * @since      1.0.0
  * @package    Simple_Address_Autocomplete
  * @subpackage Simple_Address_Autocomplete/includes
  * @author     Raza Khadim <salam@khadim.nz>
@@ -81,7 +76,7 @@ class Simple_Address_Autocomplete
 						echo '';
 						break;
 					case 'our_second_section':
-						echo 'Got questions? The <a href="https://khadim.nz/">Knowledge Base</a> explains each of the settings above and answers all the frequently asked questions. <a href="#"> Get help</a>';
+						echo 'Got questions? The <a href="https://saa.khadim.nz/">Knowledge Base</a> explains each of the settings above and answers all the frequently asked questions. <a href="#"> Get help</a>';
 						break;
 						//     		case 'our_third_section':
 						//     			echo 'Third time is the charm!';
@@ -447,35 +442,16 @@ class Simple_Address_Autocomplete
 			private function load_dependencies()
 			{
 
-				/**
-				 * The class responsible for orchestrating the actions and filters of the
-				 * core plugin.
-				 */
+
 				require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-simple-address-autocomplete-loader.php';
-
-				/**
-				 * The class responsible for defining internationalization functionality
-				 * of the plugin.
-				 */
 				require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-simple-address-autocomplete-i18n.php';
-
-				/**
-				 * The class responsible for defining all actions that occur in the admin area.
-				 */
 				require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-simple-address-autocomplete-admin.php';
-
-				/**
-				 * The class responsible for defining all actions that occur in the public-facing
-				 * side of the site.
-				 */
 				require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-simple-address-autocomplete-public.php';
 
 				$this->loader = new Simple_Address_Autocomplete_Loader();
 			}
 
 			/**
-			 * Define the locale for this plugin for internationalization.
-			 *
 			 * Uses the Simple_Address_Autocomplete_i18n class in order to set the domain and to register the hook
 			 * with WordPress.
 			 *
@@ -486,7 +462,6 @@ class Simple_Address_Autocomplete
 			{
 
 				$plugin_i18n = new Simple_Address_Autocomplete_i18n();
-
 				$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
 			}
 
