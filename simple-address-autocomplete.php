@@ -5,7 +5,7 @@
  * @wordpress-plugin
  * Plugin Name:       Simple Address Autocomplete
  * Plugin URI:        https://khadim.nz/wp/saa
- * Description:       A simple way to add Google address autocomplete to any form field.
+ * Description:       A simple way to add Google address autocomplete functionality to any form field.
  * Version:           1.0.0
  * Author:            Raza Khadim
  * Author URI:        https://khadim.nz
@@ -26,29 +26,43 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
- * Currently plugin version.
+ * Current plugin version.
  */
 define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.0.0' );
+define( 'SAA_JS_URL', plugin_dir_url( __FILE__ ));
 
-add_action( 'wp_enqueue_scripts', 'saa_enqueue_scripts' );
 
-function saa_enqueue_scripts(){
-	wp_enqueue_script( 'google_maps_places', 'https://maps.googleapis.com/maps/api/js?key='.(!empty($google_api_key) ? $google_api_key : 'AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es') .'&libraries=places', '1.0',true );
+$googleAPIKey = get_option( 'google_maps_api_key');
+$countrySelected = get_option( 'country', 'option' );
+$enableGeo = get_option( 'geolocation', 'option' );
+$geoType = get_option( 'geolocation_type', 'option' );
+
+// enqueue google maps api key
+add_action( 'wp_head', 'saa_google_maps_api_key');
+function saa_google_maps_api_key(){
+	wp_enqueue_script( 'google_maps_api', 'https://maps.googleapis.com/maps/api/js?key='. get_option( 'google_maps_api_key') . '&callback=initAutocomplete&libraries=places' );
 }
 
-/**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-simple-address-autocomplete-activator.php
- */
+// enqueue main js file
+wp_enqueue_script( 'saa_js_scripts', SAA_JS_URL.'/public/js/simple-address-autocomplete-public.js');
+
+//localising PHP get_options to use in JS
+
+wp_localize_script( 'saa_js_scripts', 'saa_settings_vars', array(
+	'google_maps_api_key' => $googleAPIKey,
+	'country_selected' => $countrySelected,
+	'enable_geolocation' => $enableGeo,
+	'geo_type' => $geoType
+) 
+);
+
+
 function activate_simple_address_autocomplete() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete-activator.php';
 	Simple_Address_Autocomplete_Activator::activate();
 }
 
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-simple-address-autocomplete-deactivator.php
- */
+
 function deactivate_simple_address_autocomplete() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete-deactivator.php';
 	Simple_Address_Autocomplete_Deactivator::deactivate();
@@ -57,10 +71,7 @@ function deactivate_simple_address_autocomplete() {
 register_activation_hook( __FILE__, 'activate_simple_address_autocomplete' );
 register_deactivation_hook( __FILE__, 'deactivate_simple_address_autocomplete' );
 
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
+
 require plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete.php';
 
 /**
@@ -85,13 +96,9 @@ add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'docs_link' );
 
 function docs_link ($url){
 	$url[] = '<a href="https://khadim.nz/kb/simple-address-autocomplete"> Support </a>';
+	$url[] = '<a href="https://khadim.nz/kb/simple-address-autocomplete"> Settings </a>';
+
 	return $url;
 }
-
-// function simple_enqueue_scripts(){
-// 	$api_key = ;
-	
-// }
-
 
 run_simple_address_autocomplete();

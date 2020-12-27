@@ -1,32 +1,47 @@
-(function( $ ) {
-	'use strict';
+let autocomplete;
 
-	/**
-	 * All of the code for your public-facing JavaScript source
-	 * should reside in this file.
-	 *
-	 * Note: It has been assumed you will write jQuery code here, so the
-	 * $ function reference has been prepared for usage within the scope
-	 * of this function.
-	 *
-	 * This enables you to define handlers, for when the DOM is ready:
-	 *
-	 * $(function() {
-	 *
-	 * });
-	 *
-	 * When the window is loaded:
-	 *
-	 * $( window ).load(function() {
-	 *
-	 * });
-	 *
-	 * ...and/or other possibilities.
-	 *
-	 * Ideally, it is not considered best practise to attach more than a
-	 * single DOM-ready or window-load handler for a particular page.
-	 * Although scripts in the WordPress core, Plugins and Themes may be
-	 * practising this, we should strive to set a better example in our own work.
-	 */
+function initAutocomplete() {
 
-})( jQuery );
+  let input = document.getElementsByClassName('autocomplete');
+  let country_select = saa_settings_vars.country_selected;
+
+  options = (country_select == 'WW') ? {types: ['geocode', 'establishment']} : {types: ['geocode', 'establishment'], componentRestrictions: { country: country_select}};
+
+  for (let i =0; i<input.length; i++){
+	  autocomplete = new google.maps.places.Autocomplete(input[i], options);
+  }
+}
+
+// 	Bias the autocomplete object to the user's geographical location,
+// 	as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+  if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition((position) => {
+	  const geolocation = {
+		lat: position.coords.latitude,
+		lng: position.coords.longitude,
+	  };
+	  const circle = new google.maps.Circle({
+		center: geolocation,
+		radius: position.coords.accuracy,
+	  });
+	  autocomplete.setBounds(circle.getBounds());
+	});
+  }
+}
+
+
+if (saa_settings_vars.enable_geolocation == 'enable' && saa_settings_vars.geo_type == 'onFocus') {
+window.onload = set_onfocus_attributes;
+}
+
+function set_onfocus_attributes(){
+let inputs = document.getElementsByClassName('autocomplete');
+for (let i=0; i<inputs.length; i++) {
+	inputs[i].setAttribute("onfocus", "geolocate()");
+}
+}
+
+if (saa_settings_vars.enable_geolocation == 'enable' && saa_settings_vars.geo_type == 'onPageLoad') {
+window.onload = geolocate;
+}

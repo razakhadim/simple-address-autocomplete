@@ -78,7 +78,7 @@ class Simple_Address_Autocomplete
 			{
 				switch ($arguments['id']) {
 					case 'general_settings':
-						echo 'Start here -> <strong><a href="https://khadim.nz">getting started</a></strong>';
+						echo '';
 						break;
 					case 'our_second_section':
 						echo 'Got questions? The <a href="https://khadim.nz/">Knowledge Base</a> explains each of the settings above and answers all the frequently asked questions. <a href="#"> Get help</a>';
@@ -108,6 +108,7 @@ class Simple_Address_Autocomplete
 						'helper' => '<i><a href="https://khadim.nz/"> Need help? </a></i>',
 						'supplimental' => 'This will limit the map search to selected country.',
 						'options' => array(
+							"WW" => "Worldwide",
 							"AF" => "Afghanistan",
 							"AL" => "Albania",
 							"DZ" => "Algeria",
@@ -356,10 +357,10 @@ class Simple_Address_Autocomplete
 						'section' => 'general_settings',
 						'type' => 'select',
 						'helper' => '<i><a href="https://khadim.nz/"> How it works? </a></i>',
-						'supplimental' => 'This will ask users to share their location.',
+						'supplimental' => 'This will ask users to share their location. Only recommended if your search is set to Worldwide. read more..',
 						'options' => array(
-							"true " => "Yes",
-							"false" => "No",
+							"disable" => "No",
+							"enable" => "Yes"
 						),
 						'default' => array()
 					),
@@ -370,8 +371,8 @@ class Simple_Address_Autocomplete
 						'type' => 'radio',
 						'supplimental' => 'When to ask for user location? The Browser Geolocation must be enabled for this option to work. ',
 						'options' => array(
-							'onFocus' => 'Focus',
-							'onPageLoad' => 'Page Load',
+							"onFocus" => 'On Focus',
+							"onPageLoad" => 'Page Load',
 
 						),
 						'default' => array()
@@ -440,17 +441,6 @@ class Simple_Address_Autocomplete
 			}
 			/**
 			 * Load the required dependencies for this plugin.
-			 *
-			 * Include the following files that make up the plugin:
-			 *
-			 * - Simple_Address_Autocomplete_Loader. Orchestrates the hooks of the plugin.
-			 * - Simple_Address_Autocomplete_i18n. Defines internationalization functionality.
-			 * - Simple_Address_Autocomplete_Admin. Defines all hooks for the admin area.
-			 * - Simple_Address_Autocomplete_Public. Defines all hooks for the public side of the site.
-			 *
-			 * Create an instance of the loader which will be used to register the hooks
-			 * with WordPress.
-			 *
 			 * @since    1.0.0
 			 * @access   private
 			 */
