@@ -29,7 +29,6 @@ if ( ! defined( 'WPINC' ) ) {
  * Current plugin version.
  */
 define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.0.0' );
-define( 'SAA_JS_URL', plugin_dir_url( __FILE__ ));
 
 
 $googleAPIKey = get_option( 'google_maps_api_key');
@@ -44,7 +43,7 @@ function saa_google_maps_api_key(){
 }
 
 // enqueue main js file
-wp_enqueue_script( 'saa_js_scripts', SAA_JS_URL.'/public/js/simple-address-autocomplete-public.js');
+wp_enqueue_script( 'saa_js_scripts', plugin_dir_url( __FILE__ ).'/public/js/simple-address-autocomplete-public.js');
 
 
 //localising PHP get_options to use in JS
