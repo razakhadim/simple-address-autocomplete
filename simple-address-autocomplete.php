@@ -35,6 +35,7 @@ $googleAPIKey = get_option( 'google_maps_api_key');
 $countrySelected = get_option( 'country', 'option' );
 $enableGeo = get_option( 'geolocation', 'option' );
 $geoType = get_option( 'geolocation_type', 'option' );
+//$elementorSupport = get_option('elementor_support', 'option');
 
 // enqueue google maps api key
 add_action( 'wp_head', 'saa_google_maps_api_key');
@@ -52,7 +53,8 @@ wp_localize_script( 'saa_js_scripts', 'saa_settings_vars', array(
 	'google_maps_api_key' => $googleAPIKey,
 	'country_selected' => $countrySelected,
 	'enable_geolocation' => $enableGeo,
-	'geo_type' => $geoType
+	'geo_type' => $geoType,
+//	'enable_elementor_support' => $elementorSupport
 ) 
 );
 
@@ -73,29 +75,21 @@ register_deactivation_hook( __FILE__, 'deactivate_simple_address_autocomplete' )
 
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete-elementor.php';
 
-
-/**
- * Begins execution of the plugin.
- *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    1.0.0
- */
 function run_simple_address_autocomplete() {
 
 	$plugin = new Simple_Address_Autocomplete();
 	$plugin->run();
+	new Elementor_Forms_Input_Classes();
 
 }
 
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'docs_link' );
 
 function docs_link ($url){
-	$url[] = '<a href="https://saa.khadim.nz/#get-started"> Support </a>';
-	$url[] = '<a href="https://khadim.nz/kb/simple-address-autocomplete"> Settings </a>';
+	$url[] = '<a target="_blank" href="https://saa.khadim.nz/#get-started"> Support </a>';
+	$url[] = '<a href="options-general.php?page=simple_autocomplete"> Settings </a>';
 
 	return $url;
 }
