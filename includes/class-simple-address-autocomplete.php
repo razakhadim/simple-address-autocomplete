@@ -91,16 +91,18 @@ class Simple_Address_Autocomplete
 					array(
 						'uid' => 'google_maps_api_key',
 						'label' => 'Google Maps API Key',
+						'placeholder' => 'Enter your API key here',
 						'section' => 'general_settings',
 						'type' => 'password',
-						'helper' => '<i><a href="https://khadim.nz/"> How to get API key? </a></i>'
+						'helper' => '<i><a target="_blank" href="https://saa.khadim.nz/kb/how-to-get-google-maps-api-key"> How to get API key? </a></i>',
+						'supplimental' => 'An API Key is required for this plugin to function.'
 					),
 					array(
 						'uid' => 'country',
 						'label' => 'Country',
 						'section' => 'general_settings',
 						'type' => 'select',
-						'helper' => '<i><a href="https://khadim.nz/"> Need help? </a></i>',
+						'helper' => '<i><a target="_blank" href="https://saa.khadim.nz/doc/country"> What does it do? </a></i>',
 						'supplimental' => 'This will limit the map search to selected country.',
 						'options' => array(
 							"WW" => "Worldwide",
@@ -351,7 +353,7 @@ class Simple_Address_Autocomplete
 						'label' => 'Enable Browser Geolocation?	',
 						'section' => 'general_settings',
 						'type' => 'select',
-						'helper' => '<i><a href="https://khadim.nz/"> How it works? </a></i>',
+						'helper' => '<i><a target="_blank" href="https://saa.khadim.nz/doc/browser-geolocation"> How it works? </a></i>',
 						'supplimental' => 'This will ask users to share their location. Only recommended if your search is set to Worldwide. read more..',
 						'options' => array(
 							"disable" => "No",
@@ -364,6 +366,7 @@ class Simple_Address_Autocomplete
 						'label' => 'Get geolocation on?',
 						'section' => 'general_settings',
 						'type' => 'radio',
+						'helper' => '<i><a target="_blank" href="https://saa.khadim.nz/doc/browser-geolocation"> How it works? </a></i>',
 						'supplimental' => 'When to ask for user location? The Browser Geolocation must be enabled for this option to work. ',
 						'options' => array(
 							"onFocus" => 'On Focus',

@@ -77,8 +77,8 @@ function run_simple_address_autocomplete() {
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'docs_link' );
 
 function docs_link ($url){
-	$url[] = '<a href="https://saa.khadim.nz/#get-started"> Support </a>';
-	$url[] = '<a href="https://khadim.nz/kb/simple-address-autocomplete"> Settings </a>';
+	$url[] = '<a target="_blank" href="https://saa.khadim.nz/#get-started"> Support </a>';
+	$url[] = '<a href="options-general.php?page=simple_autocomplete"> Settings </a>';
 
 	return $url;
 }

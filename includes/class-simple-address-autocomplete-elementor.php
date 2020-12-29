@@ -30,7 +30,7 @@ public function add_css_class_field_control( $element, $args ) {
     $tmp->add_control(
         'field_css_class',
         [
-            'label' => 'CSS class',
+            'label' => 'CSS Class',
             'inner_tab' => 'form_fields_advanced_tab',
             'tab' => 'content',
             'tabs_wrapper' => 'form_fields_tabs',
