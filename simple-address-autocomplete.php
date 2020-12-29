@@ -31,33 +31,11 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.0.0' );
 
 
-$googleAPIKey = get_option( 'google_maps_api_key');
-$countrySelected = get_option( 'country', 'option' );
-$enableGeo = get_option( 'geolocation', 'option' );
-$geoType = get_option( 'geolocation_type', 'option' );
-//$elementorSupport = get_option('elementor_support', 'option');
-
 // enqueue google maps api key
 add_action( 'wp_head', 'saa_google_maps_api_key');
 function saa_google_maps_api_key(){
 	wp_enqueue_script( 'google_maps_api', 'https://maps.googleapis.com/maps/api/js?key='. get_option( 'google_maps_api_key') . '&callback=initAutocomplete&libraries=places' );
 }
-
-// enqueue main js file
-wp_enqueue_script( 'saa_js_scripts', plugin_dir_url( __FILE__ ).'/public/js/simple-address-autocomplete-public.js');
-
-
-//localising PHP get_options to use in JS
-
-wp_localize_script( 'saa_js_scripts', 'saa_settings_vars', array(
-	'google_maps_api_key' => $googleAPIKey,
-	'country_selected' => $countrySelected,
-	'enable_geolocation' => $enableGeo,
-	'geo_type' => $geoType,
-//	'enable_elementor_support' => $elementorSupport
-) 
-);
-
 
 function activate_simple_address_autocomplete() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete-activator.php';
@@ -77,19 +55,30 @@ register_deactivation_hook( __FILE__, 'deactivate_simple_address_autocomplete' )
 require plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete-elementor.php';
 
+
+
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    1.0.0
+ */
 function run_simple_address_autocomplete() {
 
 	$plugin = new Simple_Address_Autocomplete();
-	$plugin->run();
 	new Elementor_Forms_Input_Classes();
+	$plugin->run();
 
 }
 
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'docs_link' );
 
 function docs_link ($url){
-	$url[] = '<a target="_blank" href="https://saa.khadim.nz/#get-started"> Support </a>';
-	$url[] = '<a href="options-general.php?page=simple_autocomplete"> Settings </a>';
+	$url[] = '<a href="https://saa.khadim.nz/#get-started"> Support </a>';
+	$url[] = '<a href="https://khadim.nz/kb/simple-address-autocomplete"> Settings </a>';
 
 	return $url;
 }
