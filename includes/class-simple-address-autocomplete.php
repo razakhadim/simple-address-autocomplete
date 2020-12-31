@@ -76,7 +76,7 @@ class Simple_Address_Autocomplete
 						echo '';
 						break;
 					case 'our_second_section':
-						echo 'Got questions? The <a href="https://saa.khadim.nz/">Knowledge Base</a> explains each of the settings above and answers all the frequently asked questions. <a href="#"> Get help</a>';
+						echo 'Got questions? The <a target="_blank" href="https://saa.khadim.nz/">Knowledge Base</a> explains each of the settings above and answers all the frequently asked questions. <a target="_blank" href="https://saa.khadim.nz/"> Get help</a>';
 						break;
 						//     		case 'our_third_section':
 						//     			echo 'Third time is the charm!';
@@ -95,7 +95,19 @@ class Simple_Address_Autocomplete
 						'section' => 'general_settings',
 						'type' => 'password',
 						'helper' => '<i><a target="_blank" href="https://saa.khadim.nz/kb/how-to-get-google-maps-api-key"> How to get API key? </a></i>',
-						'supplimental' => 'An API Key is required for this plugin to function.'
+						'supplimental' => 'An API Key is required for this plugin to function.',
+						'default' => ''
+					),
+						array(
+						'uid' => 'field_ids',
+						'label' => 'Field IDs',
+						'placeholder' => 'Enter field ID, one per line',
+						'section' => 'general_settings',
+						'type' => 'textarea',
+						'helper' => '',
+						'supplimental' => 'Enter one field id per line. See <i><a target="_blank" href="https://saa.khadim.nz/kb/how-to-find-the-field-id"> How to find field id? </a></i> if need help locating field id.',
+						'default' => ''
+
 					),
 					array(
 						'uid' => 'country',
@@ -354,26 +366,12 @@ class Simple_Address_Autocomplete
 						'section' => 'general_settings',
 						'type' => 'select',
 						'helper' => '<i><a target="_blank" href="https://saa.khadim.nz/doc/browser-geolocation"> How it works? </a></i>',
-						'supplimental' => 'This will ask users to share their location. Only recommended if your search is set to Worldwide. read more..',
+						'supplimental' => 'This will ask users to share their location on page load. Only works if country is set to Worldwide',
 						'options' => array(
 							"disable" => "No",
 							"enable" => "Yes"
 						),
-						'default' => array()
-					),
-					array(
-						'uid' => 'geolocation_type',
-						'label' => 'Get geolocation on?',
-						'section' => 'general_settings',
-						'type' => 'radio',
-						'helper' => '<i><a target="_blank" href="https://saa.khadim.nz/doc/browser-geolocation"> How it works? </a></i>',
-						'supplimental' => 'When to ask for user location? The Browser Geolocation must be enabled for this option to work. ',
-						'options' => array(
-							"onFocus" => 'On Focus',
-							"onPageLoad" => 'Page Load',
-
-						),
-						'default' => array()
+							'default' => array()
 					)
 				);
 				foreach ($fields as $field) {

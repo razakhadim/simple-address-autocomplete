@@ -1,4 +1,7 @@
-/**
- * All of the CSS for your admin-specific functionality should be
- * included in this file.
- */
+#google_maps_api_key {
+    width: 400px;
+  }
+  
+  #field_ids {
+    width: 400px;
+  }

@@ -6,7 +6,7 @@
  * Plugin Name:       Simple Address Autocomplete
  * Plugin URI:        https://saa.khadim.nz
  * Description:       A simple way to add Google address autocomplete functionality to any form field.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Raza Khadim
  * Author URI:        https://khadim.nz
  * License:           GPL-2.0+
@@ -28,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Current plugin version.
  */
-define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.0.0' );
+define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.1.0' );
 
 
 // enqueue google maps api key
@@ -53,8 +53,6 @@ register_deactivation_hook( __FILE__, 'deactivate_simple_address_autocomplete' )
 
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete.php';
-require plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete-elementor.php';
-
 
 
 /**
@@ -69,7 +67,6 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplet
 function run_simple_address_autocomplete() {
 
 	$plugin = new Simple_Address_Autocomplete();
-	new Elementor_Forms_Input_Classes();
 	$plugin->run();
 
 }

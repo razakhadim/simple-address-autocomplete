@@ -1,15 +1,20 @@
 let autocomplete;
 
 function initAutocomplete() {
+	
+	//get the inputs and split them
+	let inputSplit = saa_settings_vars.form_field_ids.trim().split(/\s*\n\s*/);
+	let inputValues = new Array();
 
-	let input = document.getElementsByClassName('autocomplete');
 	let country_select = saa_settings_vars.country_selected;
 
 	options = (country_select == 'WW') ? { types: ['geocode', 'establishment'] } : { types: ['geocode', 'establishment'], componentRestrictions: { country: country_select } };
-
-	for (let i = 0; i < input.length; i++) {
-		autocomplete = new google.maps.places.Autocomplete(input[i], options);
+	
+	for (let i =0; i<inputSplit.length;i++){
+		inputValues[i] = inputSplit[i];
+		autocomplete = new google.maps.places.Autocomplete(document.getElementById(inputValues[i]), options);
 	}
+
 }
 
 // 	Bias the autocomplete object to the user's geographical location,
@@ -31,17 +36,6 @@ function geolocate() {
 }
 
 
-if (saa_settings_vars.enable_geolocation == 'enable' && saa_settings_vars.geo_type == 'onFocus') {
-	window.onload = set_onfocus_attributes;
-}
-
-function set_onfocus_attributes() {
-	let inputs = document.getElementsByClassName('autocomplete');
-	for (let i = 0; i < inputs.length; i++) {
-		inputs[i].setAttribute("onfocus", "geolocate()");
-	}
-}
-
-if (saa_settings_vars.enable_geolocation == 'enable' && saa_settings_vars.geo_type == 'onPageLoad') {
+if (saa_settings_vars.enable_geolocation == 'enable' && saa_settings_vars.country_selected == 'WW') {
 	window.onload = geolocate;
 }

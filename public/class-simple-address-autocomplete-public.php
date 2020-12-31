@@ -30,8 +30,6 @@ class Simple_Address_Autocomplete_Public
 	public function enqueue_scripts()
 	{
 
-		//	wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/simple-address-autocomplete-public.js', array( 'jquery' ), $this->version, false );
-
 		//enqueue main script and localise get_option
 		wp_enqueue_script('saa_js_scripts', plugin_dir_url(__FILE__) . '/js/simple-address-autocomplete-public.js');
 
@@ -39,7 +37,8 @@ class Simple_Address_Autocomplete_Public
 			'google_maps_api_key' => get_option('google_maps_api_key'),
 			'country_selected' => get_option('country', 'option'),
 			'enable_geolocation' => get_option('geolocation', 'option'),
-			'geo_type' => get_option('geolocation_type', 'option')
+			'geo_type' => get_option('geolocation_type', 'option'),
+			'form_field_ids' =>get_option('field_ids')
 		));
 	}
 }
