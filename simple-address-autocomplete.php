@@ -34,7 +34,7 @@ define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.1.0' );
 // enqueue google maps api key
 add_action( 'wp_head', 'saa_google_maps_api_key');
 function saa_google_maps_api_key(){
-	wp_enqueue_script( 'google_maps_api', 'https://maps.googleapis.com/maps/api/js?key='. get_option( 'google_maps_api_key') . '&callback=initAutocomplete&libraries=places' );
+	wp_enqueue_script( 'google_maps_api', 'https://maps.googleapis.com/maps/api/js?key='. get_option( 'google_maps_api_key') . '&libraries=places' );
 }
 
 function activate_simple_address_autocomplete() {

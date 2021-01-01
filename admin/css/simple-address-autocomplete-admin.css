@@ -5,3 +5,8 @@
   #field_ids {
     width: 400px;
   }
+
+  #country {
+    width: 400px;
+    height: 150px;
+  }

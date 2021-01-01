@@ -36,8 +36,6 @@ class Simple_Address_Autocomplete_Public
 		wp_localize_script('saa_js_scripts', 'saa_settings_vars', array(
 			'google_maps_api_key' => get_option('google_maps_api_key'),
 			'country_selected' => get_option('country', 'option'),
-			'enable_geolocation' => get_option('geolocation', 'option'),
-			'geo_type' => get_option('geolocation_type', 'option'),
 			'form_field_ids' =>get_option('field_ids')
 		));
 	}

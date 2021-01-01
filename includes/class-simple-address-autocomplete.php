@@ -113,9 +113,9 @@ class Simple_Address_Autocomplete
 						'uid' => 'country',
 						'label' => 'Country',
 						'section' => 'general_settings',
-						'type' => 'select',
-						'helper' => '<i><a target="_blank" href="https://saa.khadim.nz/doc/country"> What does it do? </a></i>',
-						'supplimental' => 'This will limit the map search to selected country.',
+						'type' => 'multiselect',
+						'helper' => '',
+						'supplimental' => 'Use CTRL/command + click to select multiple countries. For help see <i><a target="_blank" href="https://saa.khadim.nz/doc/country"> What does it do? </a></i>',
 						'options' => array(
 							"WW" => "Worldwide",
 							"AF" => "Afghanistan",
@@ -359,19 +359,6 @@ class Simple_Address_Autocomplete
 							"ZW" => "Zimbabwe",
 						),
 						'default' => array()
-					),
-					array(
-						'uid' => 'geolocation',
-						'label' => 'Enable Browser Geolocation?	',
-						'section' => 'general_settings',
-						'type' => 'select',
-						'helper' => '<i><a target="_blank" href="https://saa.khadim.nz/doc/browser-geolocation"> How it works? </a></i>',
-						'supplimental' => 'This will ask users to share their location on page load. Only works if country is set to Worldwide',
-						'options' => array(
-							"disable" => "No",
-							"enable" => "Yes"
-						),
-							'default' => array()
 					)
 				);
 				foreach ($fields as $field) {

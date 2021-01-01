@@ -47,13 +47,13 @@ Yes, you can.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Enter as many field ids as you like, tested with most popular WordPress forms. Select one or multiple countries or worldwide.
 
 == Changelog ==
+
+= 1.1.0
+* Added multiple countires option
+* Added field ids
 
 = 1.0.0
 * First version of the plugin
