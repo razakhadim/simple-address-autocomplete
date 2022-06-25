@@ -1,7 +1,7 @@
 <?php
 
 /**
-  * @since      1.0.0
+ * @since      1.0.0
  * @package    Simple_Address_Autocomplete
  * @subpackage Simple_Address_Autocomplete/includes
  * @author     Raza Khadim <salam@khadim.nz>
@@ -98,7 +98,7 @@ class Simple_Address_Autocomplete
 						'supplimental' => 'An API Key is required for this plugin to function.',
 						'default' => ''
 					),
-						array(
+					array(
 						'uid' => 'simple_aa_options_field_ids',
 						'label' => 'Field IDs',
 						'placeholder' => 'Enter field ID, one per line',

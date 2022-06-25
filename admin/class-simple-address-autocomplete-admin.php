@@ -10,7 +10,8 @@
  * @subpackage Simple_Address_Autocomplete/admin
  * @author     Raza Khadim <salam@khadim.nz>
  */
-class Simple_Address_Autocomplete_Admin {
+class Simple_Address_Autocomplete_Admin
+{
 
 	/**
 	 * The ID of this plugin.
@@ -31,11 +32,11 @@ class Simple_Address_Autocomplete_Admin {
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct($plugin_name, $version)
+	{
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -43,16 +44,15 @@ class Simple_Address_Autocomplete_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles()
+	{
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/simple-address-autocomplete-admin.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/simple-address-autocomplete-admin.css', array(), $this->version, 'all');
 	}
 
-	public function enqueue_scripts() {
+	public function enqueue_scripts()
+	{
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/simple-address-autocomplete-admin.js', array( 'jquery' ), $this->version, false );
-
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/simple-address-autocomplete-admin.js', array('jquery'), $this->version, false);
 	}
-
 }

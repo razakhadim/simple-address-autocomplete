@@ -36,7 +36,7 @@ class Simple_Address_Autocomplete_Public
 		wp_localize_script('simple_address_autocomplete_js_scripts', 'simple_address_autocomplete_settings_vars', array(
 			'simple_address_autocomplete_google_maps_api' => get_option('simple_aa_options_google_maps_api_key'),
 			'simple_address_autocomplete_country_selected' => get_option('simple_aa_options_country', 'option'),
-			'simple_address_autocomplete_form_field_ids' =>get_option('simple_aa_options_field_ids')
+			'simple_address_autocomplete_form_field_ids' => get_option('simple_aa_options_field_ids')
 		));
 	}
 }
