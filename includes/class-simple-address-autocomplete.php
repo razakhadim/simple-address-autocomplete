@@ -32,7 +32,7 @@ class Simple_Address_Autocomplete
 		add_action('admin_menu', array($this, 'simple_address_autocomplete_settings_page'));
 
 		// Add Settings and Fields
-		add_action('admin_init', array($this, 'setup_sections'));
+		add_action('admin_init', array($this, 'simple_address_autocomplete_setup_sections'));
 		add_action('admin_init', array($this, 'simple_address_autocomplete_fields'));
 	}
 
@@ -63,24 +63,20 @@ class Simple_Address_Autocomplete
 		</div> <?php
 			}
 
-			public function setup_sections()
+			public function simple_address_autocomplete_setup_sections()
 			{
-				add_settings_section('general_settings', 'General Settings', array($this, 'section_callback'), 'simple_autocomplete');
-				add_settings_section('our_second_section', '', array($this, 'section_callback'), 'simple_autocomplete');
-				//        add_settings_section( 'our_third_section', 'My Third Section Title', array( $this, 'section_callback' ), 'simple_autocomplete' );
+				add_settings_section('general_settings_first_section', 'General Settings', array($this, 'simple_adddress_auto_complete_section_callback'), 'simple_autocomplete');
+				add_settings_section('general_settings_second_section', '', array($this, 'simple_adddress_auto_complete_section_callback'), 'simple_autocomplete');
 			}
-			public function section_callback($arguments)
+			public function simple_adddress_auto_complete_section_callback($arguments)
 			{
 				switch ($arguments['id']) {
-					case 'general_settings':
+					case 'general_settings_first_section':
 						echo '';
 						break;
-					case 'our_second_section':
+					case 'general_settings_second_section':
 						echo 'Got questions? The <a target="_blank" href="https://saa.khadim.nz/">Knowledge Base</a> explains each of the settings above and answers all the frequently asked questions. <a target="_blank" href="https://saa.khadim.nz/"> Get help</a>';
 						break;
-						//     		case 'our_third_section':
-						//     			echo 'Third time is the charm!';
-						//     			break;
 				}
 			}
 
@@ -398,18 +394,6 @@ class Simple_Address_Autocomplete
 								$attributes = ' multiple="multiple" ';
 							}
 							printf('<select name="%1$s[]" id="%1$s" %2$s>%3$s</select>', $arguments['uid'], $attributes, $options_markup);
-						}
-						break;
-					case 'radio':
-					case 'checkbox':
-						if (!empty($arguments['options']) && is_array($arguments['options'])) {
-							$options_markup = '';
-							$iterator = 0;
-							foreach ($arguments['options'] as $key => $label) {
-								$iterator++;
-								$options_markup .= sprintf('<label for="%1$s_%6$s"><input id="%1$s_%6$s" name="%1$s[]" type="%2$s" value="%3$s" %4$s /> %5$s</label><br/>', $arguments['uid'], $arguments['type'], $key, checked($value[array_search($key, $value, true)], $key, false), $label, $iterator);
-							}
-							printf('<fieldset>%s</fieldset>', $options_markup);
 						}
 						break;
 				}
