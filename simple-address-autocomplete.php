@@ -30,11 +30,11 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.1.1' );
 
-function simple_address_autocomplete_google_maps_api_key(){
-	wp_enqueue_script( 'google_maps_api', 'https://maps.googleapis.com/maps/api/js?key='. get_option( 'google_maps_api_key') . '&libraries=places' );
+function simple_address_autocomplete_enqueue_google_maps_api_key(){
+	wp_enqueue_script( 'simple_address_autocomplete_google_maps_api', 'https://maps.googleapis.com/maps/api/js?key='. get_option( 'simple_aa_options_google_maps_api_key') . '&libraries=places' );
 }
 
-add_action( 'wp_enqueue_script', 'simple_address_autocomplete_google_maps_api_key', 10 );
+add_action( 'wp_enqueue_script', 'simple_address_autocomplete_enqueue_google_maps_api_key', 10 );
 
 function activate_simple_address_autocomplete() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete-activator.php';

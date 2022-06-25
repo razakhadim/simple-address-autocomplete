@@ -34,9 +34,9 @@ class Simple_Address_Autocomplete_Public
 		wp_enqueue_script('simple_address_autocomplete_js_scripts', plugin_dir_url(__FILE__) . '/js/simple-address-autocomplete-public.js');
 
 		wp_localize_script('simple_address_autocomplete_js_scripts', 'simple_address_autocomplete_settings_vars', array(
-			'google_maps_api_key' => get_option('google_maps_api_key'),
-			'country_selected' => get_option('country', 'option'),
-			'form_field_ids' =>get_option('field_ids')
+			'simple_address_autocomplete_google_maps_api' => get_option('simple_aa_options_google_maps_api_key'),
+			'simple_address_autocomplete_country_selected' => get_option('simple_aa_options_country', 'option'),
+			'simple_address_autocomplete_form_field_ids' =>get_option('simple_aa_options_field_ids')
 		));
 	}
 }

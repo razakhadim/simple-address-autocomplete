@@ -89,7 +89,7 @@ class Simple_Address_Autocomplete
 				$fields = array(
 
 					array(
-						'uid' => 'google_maps_api_key',
+						'uid' => 'simple_aa_options_google_maps_api_key',
 						'label' => 'Google Maps API Key',
 						'placeholder' => 'Enter your API key here',
 						'section' => 'general_settings',
@@ -99,7 +99,7 @@ class Simple_Address_Autocomplete
 						'default' => ''
 					),
 						array(
-						'uid' => 'field_ids',
+						'uid' => 'simple_aa_options_field_ids',
 						'label' => 'Field IDs',
 						'placeholder' => 'Enter field ID, one per line',
 						'section' => 'general_settings',
@@ -110,7 +110,7 @@ class Simple_Address_Autocomplete
 
 					),
 					array(
-						'uid' => 'country',
+						'uid' => 'simple_aa_options_country',
 						'label' => 'Country',
 						'section' => 'general_settings',
 						'type' => 'multiselect',

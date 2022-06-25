@@ -1,7 +1,7 @@
 let autocomplete;
-let inputSplit = simple_address_autocomplete_settings_vars.form_field_ids.trim().split(/\s*\n\s*/);
+let inputSplit = simple_address_autocomplete_settings_vars.simple_address_autocomplete_form_field_ids.trim().split(/\s*\n\s*/);
 let inputValues = new Array();
-let country_select = simple_address_autocomplete_settings_vars.country_selected;
+let country_select = simple_address_autocomplete_settings_vars.simple_address_autocomplete_country_selected;
 
 function initAutocomplete() {
 
