@@ -1,7 +1,7 @@
 === Simple Address Autocomplete ===
 Contributors: razakhadim
-Donate link: https://example.com/
-Tags: address, autocomplete
+Donate link: https://www.buymeacoffee.com/razakhadim
+Tags: address, autocomplete, google maps
 Requires at least: 4.7
 Tested up to: 5.6
 Stable tag: 4.3
