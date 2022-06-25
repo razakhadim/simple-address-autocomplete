@@ -6,7 +6,7 @@
  * Plugin Name:       Simple Address Autocomplete
  * Plugin URI:        https://saa.khadim.nz
  * Description:       A simple way to add Google address autocomplete functionality to any form field.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Author:            Raza Khadim
  * Author URI:        https://khadim.nz
  * License:           GPL-2.0+
@@ -28,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Current plugin version.
  */
-define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.1.0' );
+define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.1.1' );
 
 function simple_address_autocomplete_google_maps_api_key(){
 	wp_enqueue_script( 'google_maps_api', 'https://maps.googleapis.com/maps/api/js?key='. get_option( 'google_maps_api_key') . '&libraries=places' );

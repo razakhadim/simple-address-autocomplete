@@ -51,6 +51,9 @@ Yes, you can.
 
 == Changelog ==
 
+= 1.1.1
+* Improved code
+
 = 1.1.0
 * Added multiple countires option
 * Added field ids

@@ -19,7 +19,7 @@ class Simple_Address_Autocomplete
 		if (defined('SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION')) {
 			$this->version = SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION;
 		} else {
-			$this->version = '1.0.0';
+			$this->version = '1.1.1';
 		}
 		$this->plugin_name = 'simple-address-autocomplete';
 
