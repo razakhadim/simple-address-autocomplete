@@ -30,12 +30,11 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION', '1.1.0' );
 
-
-// enqueue google maps api key
-add_action( 'wp_head', 'saa_google_maps_api_key');
-function saa_google_maps_api_key(){
+function simple_address_autocomplete_google_maps_api_key(){
 	wp_enqueue_script( 'google_maps_api', 'https://maps.googleapis.com/maps/api/js?key='. get_option( 'google_maps_api_key') . '&libraries=places' );
 }
+
+add_action( 'wp_enqueue_script', 'simple_address_autocomplete_google_maps_api_key', 10 );
 
 function activate_simple_address_autocomplete() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-simple-address-autocomplete-activator.php';
@@ -71,9 +70,9 @@ function run_simple_address_autocomplete() {
 
 }
 
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'docs_link' );
+add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'simple_address_autocomplete_docs_link' );
 
-function docs_link ($url){
+function simple_address_autocomplete_docs_link ($url){
 	$url[] = '<a target="_blank" href="https://saa.khadim.nz/#get-started"> Support </a>';
 	$url[] = '<a href="options-general.php?page=simple_autocomplete"> Settings </a>';
 
