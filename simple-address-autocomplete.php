@@ -75,6 +75,7 @@ add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'simple_address_
 function simple_address_autocomplete_docs_link ($url){
 	$url[] = '<a target="_blank" href="https://saa.khadim.nz/#get-started"> Support </a>';
 	$url[] = '<a href="options-general.php?page=simple_autocomplete"> Settings </a>';
+	$url[] = '<a href="https://www.buymeacoffee.com/razakhadim"> Buy me a coffee </a>';
 
 	return $url;
 }

@@ -31,9 +31,9 @@ class Simple_Address_Autocomplete_Public
 	{
 
 		//enqueue main script and localise get_option
-		wp_enqueue_script('saa_js_scripts', plugin_dir_url(__FILE__) . '/js/simple-address-autocomplete-public.js');
+		wp_enqueue_script('simple_address_autocomplete_js_scripts', plugin_dir_url(__FILE__) . '/js/simple-address-autocomplete-public.js');
 
-		wp_localize_script('saa_js_scripts', 'saa_settings_vars', array(
+		wp_localize_script('simple_address_autocomplete_js_scripts', 'simple_address_autocomplete_settings_vars', array(
 			'google_maps_api_key' => get_option('google_maps_api_key'),
 			'country_selected' => get_option('country', 'option'),
 			'form_field_ids' =>get_option('field_ids')

@@ -29,27 +29,27 @@ class Simple_Address_Autocomplete
 		$this->define_public_hooks();
 
 
-		add_action('admin_menu', array($this, 'saa_settings_page'));
+		add_action('admin_menu', array($this, 'simple_address_autocomplete_settings_page'));
 
 		// Add Settings and Fields
 		add_action('admin_init', array($this, 'setup_sections'));
-		add_action('admin_init', array($this, 'saa_fields'));
+		add_action('admin_init', array($this, 'simple_address_autocomplete_fields'));
 	}
 
-	public function saa_settings_page()
+	public function simple_address_autocomplete_settings_page()
 	{
 		// Add the menu item and page
 		$page_title = 'Simple Address Autocomplete Settings';
 		$menu_title = 'Simple Autocomplete';
 		$capability = 'manage_options';
 		$slug = 'simple_autocomplete';
-		$callback = array($this, 'saa_settings_page_content');
+		$callback = array($this, 'simple_address_autocomplete_settings_page_content');
 
 		//add under WP Settings
 		add_submenu_page('options-general.php', $page_title, $menu_title, $capability, $slug, $callback);
 	}
 
-	public function saa_settings_page_content()
+	public function simple_address_autocomplete_settings_page_content()
 	{ ?>
 		<div class="wrap">
 			<h2>Simple Address Autocomplete</h2>
@@ -84,7 +84,7 @@ class Simple_Address_Autocomplete
 				}
 			}
 
-			public function saa_fields()
+			public function simple_address_autocomplete_fields()
 			{
 				$fields = array(
 
