@@ -65,13 +65,13 @@ class Simple_Address_Autocomplete
 
 			public function simple_address_autocomplete_setup_sections()
 			{
-				add_settings_section('general_settings_first_section', 'General Settings', array($this, 'simple_adddress_auto_complete_section_callback'), 'simple_autocomplete');
+				add_settings_section('general_settings', 'General Settings', array($this, 'simple_adddress_auto_complete_section_callback'), 'simple_autocomplete');
 				add_settings_section('general_settings_second_section', '', array($this, 'simple_adddress_auto_complete_section_callback'), 'simple_autocomplete');
 			}
 			public function simple_adddress_auto_complete_section_callback($arguments)
 			{
 				switch ($arguments['id']) {
-					case 'general_settings_first_section':
+					case 'general_settings':
 						echo '';
 						break;
 					case 'general_settings_second_section':
