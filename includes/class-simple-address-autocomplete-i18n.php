@@ -7,7 +7,7 @@
  * @since      1.0.0
  * @package    Simple_Address_Autocomplete
  * @subpackage Simple_Address_Autocomplete/includes
- * @author     Raza Khadim <salam@khadim.nz>
+ * @author     Raza Khadim <razakhadim@gmail.com>
  */
 class Simple_Address_Autocomplete_i18n {
 

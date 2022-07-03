@@ -8,7 +8,7 @@
  *
  * @package    Simple_Address_Autocomplete
  * @subpackage Simple_Address_Autocomplete/admin
- * @author     Raza Khadim <salam@khadim.nz>
+ * @author     Raza Khadim <razakhadim@gmail.com>
  */
 class Simple_Address_Autocomplete_Admin
 {
