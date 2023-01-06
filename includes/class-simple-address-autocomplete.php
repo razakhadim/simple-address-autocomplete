@@ -75,7 +75,7 @@ class Simple_Address_Autocomplete
 						echo '';
 						break;
 					case 'general_settings_second_section':
-						echo 'Got questions? The <a target="_blank" href="https://saa.khadim.nz/">Knowledge Base</a> explains each of the settings above and answers all the frequently asked questions. <a target="_blank" href="https://saa.khadim.nz/"> Get help</a>';
+						echo 'Got questions? The <a target="_blank" href="https://saa.khadim.nz/">Knowledge Base</a> explains each of the settings above and answers all the frequently asked questions. <a target="_blank" href="https://wordpress.org/support/plugin/simple-address-autocomplete/"> Get help</a>';
 						break;
 				}
 			}
