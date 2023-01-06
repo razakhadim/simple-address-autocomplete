@@ -4,7 +4,7 @@ To download go to: https://wordpress.org/plugins/simple-address-autocomplete/
 === Simple Address Autocomplete ===
 Contributors: razakhadim
 Donate link: https://www.buymeacoffee.com/razakhadim
-Tags: address, autocomplete, google maps
+Tags: address, autocomplete, google maps autocomplete, google address autocomplete
 Requires at least: 4.7
 Tested up to: 6.1
 Stable tag: 1.2.0
