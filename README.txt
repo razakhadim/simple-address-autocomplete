@@ -6,8 +6,8 @@ Contributors: razakhadim
 Donate link: https://www.buymeacoffee.com/razakhadim
 Tags: address, autocomplete, google maps
 Requires at least: 4.7
-Tested up to: 6.0
-Stable tag: 1.1.1
+Tested up to: 6.1
+Stable tag: 1.2.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -46,12 +46,21 @@ No, it doesn't out of the box. However, out of the box option will be available 
 
 Yes, you can. However, field ids must be unique.
 
+= Why one of the address fields is only working?
+
+The plugin uses field ids to set autocomplete functionality. If your fields have same ID then it will only work for one. Try adding unique field IDs to each address field.
+
 
 == Screenshots ==
 
 1. Enter as many field ids as you like, tested with most popular WordPress forms. Select one or multiple countries or worldwide.
 
 == Changelog ==
+
+= 1.2.0
+* Fix url extra slash
+* Feature: Biased search. You can set a region/area where the search begins
+* Feature: Restricted search. You can restrict the search to city/state/region/area now.
 
 = 1.1.1
 * Improved code
