@@ -60,7 +60,7 @@ The plugin uses field ids to set autocomplete functionality. If your fields have
 = 1.2.0
 * Fix url extra slash
 * Feature: Biased search. You can set a region/area where the search begins
-* Feature: Restricted search. You can restrict the search to city/state/region/area now.
+* Feature: Restricted search. You can restrict the search a area now.
 
 = 1.1.1
 * Improved code
