@@ -4,10 +4,10 @@ To download go to: https://wordpress.org/plugins/simple-address-autocomplete/
 === Simple Address Autocomplete ===
 Contributors: razakhadim
 Donate link: https://www.buymeacoffee.com/razakhadim
-Tags: address, autocomplete, google maps autocomplete, google address autocomplete
+Tags: address, autocomplete, google maps autocomplete, google address autocomplete, google maps
 Requires at least: 4.7
-Tested up to: 6.1
-Stable tag: 1.2.0
+Tested up to: 6.2.2
+Stable tag: 1.2.1
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -56,6 +56,11 @@ The plugin uses field ids to set autocomplete functionality. If your fields have
 1. Enter as many field ids as you like, tested with most popular WordPress forms. Select one or multiple countries or worldwide.
 
 == Changelog ==
+
+=1.2.1
+* Fix array_search fatal error
+* Compitablity with Forminator: Forminator changes field IDs on each page load
+* Compitablity with WP ver 6.2.2
 
 = 1.2.0
 * Fix url extra slash

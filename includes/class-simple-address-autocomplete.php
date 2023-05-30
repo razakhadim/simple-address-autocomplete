@@ -19,7 +19,7 @@ class Simple_Address_Autocomplete
 		if (defined('SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION')) {
 			$this->version = SIMPLE_ADDRESS_AUTOCOMPLETE_VERSION;
 		} else {
-			$this->version = '1.2.0';
+			$this->version = '1.2.1';
 		}
 		$this->plugin_name = 'simple-address-autocomplete';
 
@@ -413,7 +413,7 @@ class Simple_Address_Autocomplete
 							$attributes = '';
 							$options_markup = '';
 							foreach ($arguments['options'] as $key => $label) {
-								$options_markup .= sprintf('<option value="%s" %s>%s</option>', $key, selected($value[array_search($key, $value, true)], $key, false), $label);
+								$options_markup .= sprintf('<option value="%s" %s>%s</option>', $key, selected(!empty($value) && is_array($value) && in_array($key, $value), true, false), $label);
 							}
 							if ($arguments['type'] === 'multiselect') {
 								$attributes = ' multiple="multiple" ';
