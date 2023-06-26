@@ -1,6 +1,3 @@
-This plugin is available on WordPress plugin repository. 
-To download go to: https://wordpress.org/plugins/simple-address-autocomplete/
-
 === Simple Address Autocomplete ===
 Contributors: razakhadim
 Donate link: https://www.buymeacoffee.com/razakhadim
